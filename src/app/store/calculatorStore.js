@@ -38,15 +38,14 @@ export const useCalculator = create((set) => ({
       : set({ yearError: "" });
   },
   checkDate: ({ day, month, year }) => {
-    if (day > new Date(year, month, 0).getDate() || day < 0) {
-      set({ dayError: "Must be a valid day" });
-    }
-    if (month > 12 || month < 0) {
-      set({ monthError: "Must be a valid month" });
-    }
-    if (year < 0 || year > new Date().getFullYear()) {
-    
-      set({ yearError: "Must be in the past" });
-    }
-  }
+    day > new Date(year, month, 0).getDate() || day < 0
+      ? set({ dayError: "Must be a valid day" })
+      : set({ dayError: "" });
+    month > 12 || month < 0
+      ? set({ monthError: "Must be a valid month" })
+      : set({ monthError: "" });
+    year < 0 || year > new Date().getFullYear()
+      ? set({ yearError: "Must be in the past" })
+      : set({ yearError: "" });
+  },
 }));

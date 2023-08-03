@@ -6,8 +6,7 @@ export default function HomeClient() {
   //zustand store states
   const { day, month, year, dayError, monthError, yearError } = useCalculator();
   //zustand store functions
-  const { calculateAge, checkEmpty, checkDate} =
-    useCalculator();
+  const { calculateAge, checkEmpty, checkDate } = useCalculator();
 
   function handleSubmit(event) {
     event.preventDefault();
@@ -25,12 +24,10 @@ export default function HomeClient() {
     ) {
       //correcto
       calculateAge({ day, month, year });
-      
     }
-      //incorrecto
-      checkEmpty({day, month, year});
-      checkDate({day, month, year});
-    
+    //incorrecto
+    checkEmpty({ day, month, year });
+    checkDate({ day, month, year });
   }
 
   return (
@@ -39,7 +36,9 @@ export default function HomeClient() {
         <div className="flex items-start text-gris-200/80 sm:gap-6 gap-4 w-full ">
           <div className="flex flex-col gap-2">
             <label
-              className={`text-xs font-semibold tracking-wider ${dayError ? " text-rojo" : " text-gris-200/80"}`}
+              className={`text-xs font-semibold tracking-wider ${
+                dayError ? " text-rojo" : " text-gris-200/80"
+              }`}
               htmlFor="day"
             >
               DAY
@@ -49,13 +48,19 @@ export default function HomeClient() {
               placeholder="DD"
               name="day"
               id="day"
-              className={`placeholder:text-gris-200/80 text-offBlack border caret-morado focus:border-morado hover:border-morado outline outline-1 ${dayError ? " outline-rojo" : " outline-gris-100"}  outline-gris-100 rounded-md sm:w-[7.5rem] w-20 py-2 px-4 sm:text-2xl text-lg font-bold`}
+              className={`placeholder:text-gris-200/80 text-offBlack border caret-morado focus:border-morado hover:border-morado outline outline-1 ${
+                dayError ? " outline-rojo" : " outline-gris-100"
+              }  outline-gris-100 rounded-md sm:w-[7.5rem] w-20 py-2 px-4 sm:text-2xl text-lg font-bold`}
             />
-            {dayError ? (<p className="sm:text-xs text-[0.5rem] text-rojo">{dayError}</p>) : null}
+            {dayError ? (
+              <p className="sm:text-xs text-[0.5rem] text-rojo">{dayError}</p>
+            ) : null}
           </div>
           <div className="flex flex-col gap-2">
             <label
-              className={`text-xs font-semibold tracking-wider ${monthError ? " text-rojo" : " text-gris-200/80"}`}
+              className={`text-xs font-semibold tracking-wider ${
+                monthError ? " text-rojo" : " text-gris-200/80"
+              }`}
               htmlFor="month"
             >
               MONTH
@@ -65,13 +70,19 @@ export default function HomeClient() {
               placeholder="MM"
               name="month"
               id="month"
-              className={`placeholder:text-gris-200/80 text-offBlack border caret-morado focus:border-morado hover:border-morado outline outline-1 ${monthError ? " outline-rojo" : " outline-gris-100"}  outline-gris-100 rounded-md sm:w-[7.5rem] w-20 py-2 px-4 sm:text-2xl text-lg font-bold`}
+              className={`placeholder:text-gris-200/80 text-offBlack border caret-morado focus:border-morado hover:border-morado outline outline-1 ${
+                monthError ? " outline-rojo" : " outline-gris-100"
+              }  outline-gris-100 rounded-md sm:w-[7.5rem] w-20 py-2 px-4 sm:text-2xl text-lg font-bold`}
             />
-            {monthError ? (<p className="sm:text-xs text-[0.5rem] text-rojo">{monthError}</p>) : null}
+            {monthError ? (
+              <p className="sm:text-xs text-[0.5rem] text-rojo">{monthError}</p>
+            ) : null}
           </div>
           <div className="flex flex-col gap-2">
             <label
-              className={`text-xs font-semibold tracking-wider ${yearError ? " text-rojo" : " text-gris-200/80"}`}
+              className={`text-xs font-semibold tracking-wider ${
+                yearError ? " text-rojo" : " text-gris-200/80"
+              }`}
               htmlFor="year"
             >
               YEAR
@@ -81,9 +92,13 @@ export default function HomeClient() {
               placeholder="YYYY"
               name="year"
               id="year"
-              className={`placeholder:text-gris-200/80 text-offBlack border caret-morado focus:border-morado hover:border-morado outline outline-1 ${yearError ? " outline-rojo" : " outline-gris-100"}  outline-gris-100 rounded-md sm:w-[7.5rem] w-20 py-2 px-4 sm:text-2xl text-lg font-bold`}
+              className={`placeholder:text-gris-200/80 text-offBlack border caret-morado focus:border-morado hover:border-morado outline outline-1 ${
+                yearError ? " outline-rojo" : " outline-gris-100"
+              }  outline-gris-100 rounded-md sm:w-[7.5rem] w-20 py-2 px-4 sm:text-2xl text-lg font-bold`}
             />
-            {yearError ? (<p className="sm:text-xs text-[0.5rem] text-rojo">{yearError}</p>) : null}
+            {yearError ? (
+              <p className="sm:text-xs text-[0.5rem] text-rojo">{yearError}</p>
+            ) : null}
           </div>
         </div>
         <div className="flex w-full items-center sm:flex-row flex-col sm:p-0 p-5">
