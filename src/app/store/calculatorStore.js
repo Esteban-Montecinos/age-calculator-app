@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import { getAge } from "../logic";
 
 export const useCalculator = create((set) => ({
   day: "--",
@@ -8,22 +9,11 @@ export const useCalculator = create((set) => ({
   monthError: "",
   yearError: "",
   calculateAge: ({ day, month, year }) => {
-    const birthDate = new Date(year, month - 1, day);
-    const date = new Date();
-    const numDay = date.getDate() - birthDate.getDate();
-    const numMonth = date.getMonth() - birthDate.getMonth();
-    var numYear = date.getFullYear() - birthDate.getFullYear();
-
-    if (
-      numMonth < 0 ||
-      (numMonth === 0 && date.getDate() < birthDate.getDate())
-    ) {
-      numYear--;
-    }
+    const {numDay, numMonth, numYear} = getAge({ day, month, year })
     set({
-      day: Math.abs(numDay),
-      month: Math.abs(numMonth),
-      year: Math.abs(numYear),
+      day: numDay,
+      month: numMonth,
+      year: numYear,
     });
   },
   checkEmpty: ({ day, month, year }) => {
